@@ -1,0 +1,27 @@
+<style>
+    /* This is your 'frame' */
+    .container {
+        position: relative;
+        display: inline-block; /* Makes the box exactly the size of your image */
+    }
+
+    /* This is your 'pin' */
+    .my-button {
+        position: absolute;
+        top: 70%;  /* Moves it 70% down from the top */
+        left: 50%; /* Moves it 50% from the left */
+        transform: translate(-50%, -50%); /* Perfectly centers it at that point */
+        width: 150px; /* Adjust this to change your button size */
+        cursor: pointer;
+    }
+</style>
+
+<div class="container">
+    <!-- Your main email graphic -->
+    <img src="your-main-email.jpg" style="width: 100%; display: block;">
+
+    <!-- Your clickable button graphic -->
+    <a href="YOUR_LINK_HERE" target="_blank">
+        <img src="your-button-graphic.png" class="my-button" alt="Click here">
+    </a>
+</div>
