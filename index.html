@@ -1,27 +1,58 @@
-<style>
-    /* This is your 'frame' */
-    .container {
-        position: relative;
-        display: inline-block; /* Makes the box exactly the size of your image */
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Banter Email Preview</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            margin: 0;
+        }
 
-    /* This is your 'pin' */
-    .my-button {
-        position: absolute;
-        top: 70%;  /* Moves it 70% down from the top */
-        left: 50%; /* Moves it 50% from the left */
-        transform: translate(-50%, -50%); /* Perfectly centers it at that point */
-        width: 150px; /* Adjust this to change your button size */
-        cursor: pointer;
-    }
-</style>
+        /* This container keeps both images in the same spot */
+        .email-container {
+            position: relative;
+            width: 600px; /* Adjust this to match your actual image width */
+        }
 
-<div class="container">
-    <!-- Your main email graphic -->
-    <img src="your-main-email.jpg" style="width: 100%; display: block;">
+        .main-graphic {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
 
-    <!-- Your clickable button graphic -->
-    <a href="YOUR_LINK_HERE" target="_blank">
-        <img src="your-button-graphic.png" class="my-button" alt="Click here">
-    </a>
-</div>
+        /* The transparent button layer */
+        .button-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            transition: opacity 0.3s ease; /* Makes the hover feel smooth */
+            opacity: 0.7; /* Optional: start slightly faded to see the effect */
+        }
+
+        /* The "Hover" effect */
+        .button-overlay:hover {
+            opacity: 1; /* Brightens or changes when mouse is over it */
+            cursor: pointer;
+            filter: brightness(1.2); /* Makes the button "pop" on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="email-container">
+        <!-- Your main sample graphic -->
+        <img src="Banter-email-sample.png" class="main-graphic">
+
+        <!-- Your transparent button graphic stacked on top -->
+        <a href="https://www.linkedin.com/in/jill-clark-26b956384/">
+            <img src="button.png" class="button-overlay">
+        </a>
+    </div>
+
+</body>
+</html>
