@@ -1,63 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banter Email Campaign Preview</title>
+    <title>Banter Email Preview</title>
     <style>
-        /* General page styling */
-        body {
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
+        body { background-color: #f4f4f4; display: flex; justify-content: center; padding-top: 50px; margin: 0; }
 
-        /* The container set to 600px to make your 1200px graphics look high-res/crisp */
         .email-container {
             position: relative;
-            width: 600px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Adds a nice "email card" look */
-            line-height: 0; /* Removes tiny gaps under images */
+            width: 600px; /* Displays at 600px for crispness */
         }
 
-        /* The main graphic everyone sees */
-        .base-graphic {
+        /* The base and hover graphics are stacked */
+        .base-img, .hover-img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* The transparent button layer - perfectly aligned because it's the same size */
-        .button-hover-layer {
+        .hover-img {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: auto;
             opacity: 0; /* Hidden by default */
-            transition: opacity 0.2s ease-in-out;
-            cursor: pointer;
+            pointer-events: none; /* Let the clicks pass through to the map below */
+            transition: opacity 0.2s;
         }
 
-        /* The magic swap: when you hover over the container, the button appears */
-        .email-container:hover .button-hover-layer {
-            opacity: 1;
+        /* This class will be toggled by the image map */
+        .show-hover {
+            opacity: 1 !important;
         }
     </style>
 </head>
 <body>
 
     <div class="email-container">
-        <!-- Main Email Sample -->
-        <img src="Banter-email-sample.png" alt="Banter Email Content" class="base-graphic">
+        <!-- 1. The Graphics -->
+        <img src="Banter-email-sample.png" class="base-img" usemap="#button-map">
+        <img src="button.png" id="hoverGraphic" class="hover-img">
 
-        <!-- Clickable Link and Hover Button -->
-        <a href="https://www.linkedin.com/in/jill-clark-26b956384/" target="_blank">
-            <img src="button.png" alt="Call to Action" class="button-hover-layer">
-        </a>
+        <!-- 2. The Image Map -->
+        <!-- "coords" are: x1, y1 (top-left) and x2, y2 (bottom-right) -->
+        <map name="button-map">
+            <area shape="rect" 
+                  coords="61,1125,705,1301" 
+                  href="https://your-link.com" 
+                  onmouseover="document.getElementById('hoverGraphic').classList.add('show-hover')" 
+                  onmouseout="document.getElementById('hoverGraphic').classList.remove('show-hover')">
+        </map>
     </div>
 
 </body>
