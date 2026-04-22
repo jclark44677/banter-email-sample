@@ -7,10 +7,9 @@
 
         .email-container {
             position: relative;
-            width: 600px; /* Displays at 600px for crispness */
+            width: 600px; 
         }
-
-        /* The base and hover graphics are stacked */
+        
         .base-img, .hover-img {
             width: 100%;
             height: auto;
@@ -21,12 +20,11 @@
             position: absolute;
             top: 0;
             left: 0;
-            opacity: 0; /* Hidden by default */
-            pointer-events: none; /* Let the clicks pass through to the map below */
+            opacity: 0; /
+            pointer-events: none; 
             transition: opacity 0.2s;
         }
 
-        /* This class will be toggled by the image map */
         .show-hover {
             opacity: 1 !important;
         }
@@ -35,12 +33,10 @@
 <body>
 
     <div class="email-container">
-        <!-- 1. The Graphics -->
+       
         <img src="Banter-email-sample.png" class="base-img" usemap="#button-map">
         <img src="button.png" id="hoverGraphic" class="hover-img">
-
-        <!-- 2. The Image Map -->
-        <!-- "coords" are: x1, y1 (top-left) and x2, y2 (bottom-right) -->
+        
         <map name="button-map">
             <area shape="rect" 
                   coords="30,562,352,650" 
