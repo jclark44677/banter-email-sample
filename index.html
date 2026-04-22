@@ -1,56 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Banter Email Preview</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banter Email Campaign Preview</title>
     <style>
+        /* General page styling */
         body {
             background-color: #f4f4f4;
             display: flex;
             justify-content: center;
-            padding-top: 50px;
+            padding: 50px 20px;
             margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* This container keeps both images in the same spot */
+        /* The container set to 600px to make your 1200px graphics look high-res/crisp */
         .email-container {
             position: relative;
-            width: 600px; /* Adjust this to match your actual image width */
+            width: 600px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Adds a nice "email card" look */
+            line-height: 0; /* Removes tiny gaps under images */
         }
 
-        .main-graphic {
-            display: block;
+        /* The main graphic everyone sees */
+        .base-graphic {
             width: 100%;
             height: auto;
+            display: block;
         }
 
-        /* The transparent button layer */
-        .button-overlay {
+        /* The transparent button layer - perfectly aligned because it's the same size */
+        .button-hover-layer {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: auto;
-            transition: opacity 0.3s ease; /* Makes the hover feel smooth */
-            opacity: 0.7; /* Optional: start slightly faded to see the effect */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.2s ease-in-out;
+            cursor: pointer;
         }
 
-        /* The "Hover" effect */
-        .button-overlay:hover {
-            opacity: 1; /* Brightens or changes when mouse is over it */
-            cursor: pointer;
-            filter: brightness(1.2); /* Makes the button "pop" on hover */
+        /* The magic swap: when you hover over the container, the button appears */
+        .email-container:hover .button-hover-layer {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
     <div class="email-container">
-        <!-- Your main sample graphic -->
-        <img src="Banter-email-sample.png" class="main-graphic">
+        <!-- Main Email Sample -->
+        <img src="Banter-email-sample.png" alt="Banter Email Content" class="base-graphic">
 
-        <!-- Your transparent button graphic stacked on top -->
-        <a href="https://www.linkedin.com/in/jill-clark-26b956384/">
-            <img src="button.png" class="button-overlay">
+        <!-- Clickable Link and Hover Button -->
+        <a href="https://www.linkedin.com/in/jill-clark-26b956384/" target="_blank">
+            <img src="button.png" alt="Call to Action" class="button-hover-layer">
         </a>
     </div>
 
